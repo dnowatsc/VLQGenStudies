@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("LHE")
 
 process.source = cms.Source("LHESource",
-	fileNames = cms.untracked.vstring('file:/afs/desy.de/user/u/usaiem/xxl-af-cms/gen2/test/Zp_Tt/Events/prova2/unweighted_events.lhe')
+	fileNames = cms.untracked.vstring('file:/afs/cern.ch/user/d/dnowatsc/TpTp_production/pairVLQ/th_th_t23t23/th_th_t23t23/Events/test0/unweighted_events.lhe')
 )
 
 process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(-1))

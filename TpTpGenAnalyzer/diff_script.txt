@@ -1,0 +1,16 @@
+31c
+process.TFileService=cms.Service("TFileService",fileName=cms.string(name+'.root'))
+.
+24c
+	fileName = cms.untracked.string(name+'_LHE.root')
+.
+7c
+	fileNames = cms.untracked.vstring('file:/afs/cern.ch/user/d/dnowatsc/TpTp_production/pairVLQ/th_th_t23t23/th_th_t23t23/Events/'+name+'/unweighted_events.lhe')
+.
+5a
+name=sys.argv[2]
+
+.
+2a
+import sys
+.
