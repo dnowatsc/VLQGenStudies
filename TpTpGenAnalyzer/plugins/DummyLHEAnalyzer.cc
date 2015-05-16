@@ -78,148 +78,39 @@ private:
     const std::vector<lhef::HEPEUP::FiveVector> pup_ = hepeup_.PUP;
     const std::vector< std::pair< int, int > > mothup_ = hepeup_.MOTHUP;
 
-    // std::cout << "Number of particles = " << nup_ << std::endl;
-
-    // if ( evt->pdf() != NULL ) {
-    //   std::cout << "PDF scale = " << std::setw(14) << std::fixed << evt->pdf()->scalePDF << std::endl;  
-    //   std::cout << "PDF 1 : id = " << std::setw(14) << std::fixed << evt->pdf()->id.first 
-    //             << " x = " << std::setw(14) << std::fixed << evt->pdf()->x.first 
-    //             << " xPDF = " << std::setw(14) << std::fixed << evt->pdf()->xPDF.first << std::endl;  
-    //   std::cout << "PDF 2 : id = " << std::setw(14) << std::fixed << evt->pdf()->id.second 
-    //             << " x = " << std::setw(14) << std::fixed << evt->pdf()->x.second 
-    //             << " xPDF = " << std::setw(14) << std::fixed << evt->pdf()->xPDF.second << std::endl;  
-    // }
-
-//bW checks
-//if(!(
-//    checkNof(6,idup_)==1 &&
-//    checkNof(zprimepdg,idup_)==1 &&
-//    checkNof(tprimepdg,idup_)==1 &&
-//    checkDau(zprimepdg,tprimepdg,6,idup_,mothup_) &&
-//    checkDau(tprimepdg,5,24,idup_,mothup_) &&
-//    (checkDau(6,5,24,idup_,mothup_) || checkDau(6,4,24,idup_,mothup_) ) 
-//    )
-//    ){
-// std::cout<<"NO bW\n";
-// std::cout<<"checkNof(6,idup_)==1 " << checkNof(6,idup_) <<std::endl;
-// std::cout<<"checkNof(zprimepdg,idup_)==1 "<<checkNof(zprimepdg,idup_) <<std::endl;
-// std::cout<<"checkNof(tprimepdg,idup_)==1 "<<checkNof(tprimepdg,idup_) <<std::endl;
-// std::cout<<"checkDau(zprimepdg,tprimepdg,6,idup_,mothup_) "<<checkDau(zprimepdg,tprimepdg,6,idup_,mothup_) <<std::endl;
-// std::cout<<"checkDau(tprimepdg,5,24,idup_,mothup_) "<<checkDau(tprimepdg,5,24,idup_,mothup_) <<std::endl;
-// std::cout<<"checkDau(6,5,24,idup_,mothup_) "<<checkDau(6,5,24,idup_,mothup_) <<std::endl;
-// std::cout<<"checkDau(6,4,24,idup_,mothup_) "<<checkDau(6,4,24,idup_,mothup_) <<std::endl;
-// std::cout<<std::endl;
-// for ( unsigned int icount = 0 ; icount < (unsigned int)nup_; icount++ ) {
-//       std::cout << "# " << std::setw(14) << std::fixed << icount 
-//                 << std::setw(14) << std::fixed << idup_[icount] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[0] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[1] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[2] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[3] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[4]
-//                 << std::setw(14) << std::fixed << mothup_[icount].first
-//                 << std::setw(14) << std::fixed << mothup_[icount].second
-//                 << std::endl;
-//               }
-//}
-//tZ checks
-//if(!(
-//    checkNof(6,idup_)==2 &&
-//    checkNof(zprimepdg,idup_)==1 &&
-//    checkNof(tprimepdg,idup_)==1 &&
-//    checkNof(23,idup_)==1 && //Z 25 for H
-//    checkDau(zprimepdg,tprimepdg,6,idup_,mothup_) &&
-//    checkDau(tprimepdg,6,23,idup_,mothup_) && //tZ
-//    (checkDau(6,5,24,idup_,mothup_) || checkDau(6,4,24,idup_,mothup_) ) )
-//    ){
-// std::cout<<"NO tZ\n";
-// std::cout<<"checkNof(6,idup_)==2 " << checkNof(6,idup_) <<std::endl;
-// std::cout<<"checkNof(zprimepdg,idup_)==1 "<<checkNof(zprimepdg,idup_) <<std::endl;
-// std::cout<<"checkNof(tprimepdg,idup_)==1 "<<checkNof(tprimepdg,idup_) <<std::endl;
-// std::cout<<"checkNof(23,idup_)==1 "<<checkNof(23,idup_) <<std::endl;
-// std::cout<<"checkDau(zprimepdg,tprimepdg,6,idup_,mothup_) "<<checkDau(zprimepdg,tprimepdg,6,idup_,mothup_) <<std::endl;
-// std::cout<<"checkDau(tprimepdg,6,23,idup_,mothup_) "<<checkDau(tprimepdg,6,23,idup_,mothup_) <<std::endl;
-// std::cout<<"checkDau(6,5,24,idup_,mothup_) "<<checkDau(6,5,24,idup_,mothup_) <<std::endl;
-// std::cout<<"checkDau(6,4,24,idup_,mothup_) "<<checkDau(6,4,24,idup_,mothup_) <<std::endl;
-// std::cout<<std::endl;
-// for ( unsigned int icount = 0 ; icount < (unsigned int)nup_; icount++ ) {
-//       std::cout << "# " << std::setw(14) << std::fixed << icount 
-//                 << std::setw(14) << std::fixed << idup_[icount] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[0] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[1] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[2] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[3] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[4]
-//                 << std::setw(14) << std::fixed << mothup_[icount].first
-//                 << std::setw(14) << std::fixed << mothup_[icount].second
-//                 << std::endl;
-//               }
-//} 
-//tH checks
-//if(!(
-//    checkNof(6,idup_)==2 &&
-//    checkNof(zprimepdg,idup_)==1 &&
-//    checkNof(tprimepdg,idup_)==1 &&
-//    checkNof(25,idup_)==1 && //Z 25 for H
-//    checkDau(zprimepdg,tprimepdg,6,idup_,mothup_) &&
-//    checkDau(tprimepdg,6,25,idup_,mothup_) && //tZ
-//    (checkDau(6,5,24,idup_,mothup_) || checkDau(6,4,24,idup_,mothup_) ) )
-//    ){
-// std::cout<<"NO tH\n";
-// std::cout<<"checkNof(6,idup_)==2 " << checkNof(6,idup_) <<std::endl;
-// std::cout<<"checkNof(zprimepdg,idup_)==1 "<<checkNof(zprimepdg,idup_) <<std::endl;
-// std::cout<<"checkNof(tprimepdg,idup_)==1 "<<checkNof(tprimepdg,idup_) <<std::endl;
-// std::cout<<"checkNof(25,idup_)==1 "<<checkNof(25,idup_) <<std::endl;
-// std::cout<<"checkDau(zprimepdg,tprimepdg,6,idup_,mothup_) "<<checkDau(zprimepdg,tprimepdg,6,idup_,mothup_) <<std::endl;
-// std::cout<<"checkDau(tprimepdg,6,25,idup_,mothup_) "<<checkDau(tprimepdg,6,25,idup_,mothup_) <<std::endl;
-// std::cout<<"checkDau(6,5,24,idup_,mothup_) "<<checkDau(6,5,24,idup_,mothup_) <<std::endl;
-// std::cout<<"checkDau(6,4,24,idup_,mothup_) "<<checkDau(6,4,24,idup_,mothup_) <<std::endl;
-// std::cout<<std::endl;
-// for ( unsigned int icount = 0 ; icount < (unsigned int)nup_; icount++ ) {
-//       std::cout << "# " << std::setw(14) << std::fixed << icount 
-//                 << std::setw(14) << std::fixed << idup_[icount] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[0] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[1] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[2] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[3] 
-//                 << std::setw(14) << std::fixed << (pup_[icount])[4]
-//                 << std::setw(14) << std::fixed << mothup_[icount].first
-//                 << std::setw(14) << std::fixed << mothup_[icount].second
-//                 << std::endl;
-//               }
-//} 
-
-
+    float ld_mu_pt = 0.f;
+    float ld_mu_eta = 0.f;
+    float ld_mu_phi = 0.f;
 
     for ( unsigned int icount = 0 ; icount < (unsigned int)nup_; icount++ ) {
 
-      // std::cout << "# " << std::setw(14) << std::fixed << icount 
-      //           << std::setw(14) << std::fixed << idup_[icount] 
-      //           << std::setw(14) << std::fixed << (pup_[icount])[0] 
-      //           << std::setw(14) << std::fixed << (pup_[icount])[1] 
-      //           << std::setw(14) << std::fixed << (pup_[icount])[2] 
-      //           << std::setw(14) << std::fixed << (pup_[icount])[3] 
-      //           << std::setw(14) << std::fixed << (pup_[icount])[4]
-      //           << std::setw(14) << std::fixed << mothup_[icount].first
-      //           << std::setw(14) << std::fixed << mothup_[icount].second
-      //           << std::endl;
-
        TLorentzVector part4vec((pup_[icount])[0], (pup_[icount])[1], (pup_[icount])[2], (pup_[icount])[3]);
+       
+       if (abs(idup_[icount])==13) {
+           if (!ld_mu_pt || part4vec.Pt() > ld_mu_pt) {
+               ld_mu_pt = part4vec.Pt();
+               ld_mu_eta = part4vec.Eta();
+               ld_mu_phi = part4vec.Phi();
+           }
+       }
 
        if (abs(idup_[icount])==6) histos1D_[ "topPt" ]->Fill(part4vec.Pt());
-       if ((abs(idup_[mothup_[icount].first-1])==6) && (abs(idup_[icount])==24)) histos1D_[ "wtPt" ]->Fill(part4vec.Pt());
+       if (abs(idup_[icount])==24) histos1D_[ "wPt" ]->Fill(part4vec.Pt());
+       if (abs(idup_[icount])==23) histos1D_[ "zPt" ]->Fill(part4vec.Pt());
        if ((abs(idup_[mothup_[icount].first-1])==6) && (abs(idup_[icount])==5)) histos1D_[ "btPt" ]->Fill(part4vec.Pt());
        if (abs(idup_[icount])==tprimepdg) histos1D_[ "tprimePt" ]->Fill(part4vec.Pt());
        if (abs(idup_[icount])==25) histos1D_[ "hPt" ]->Fill(part4vec.Pt());
 
        if (abs(idup_[icount])==6) histos1D_[ "topEta" ]->Fill(part4vec.Eta());
-       if ((abs(idup_[mothup_[icount].first-1])==6) && (abs(idup_[icount])==24)) histos1D_[ "wtEta" ]->Fill(part4vec.Eta());
+       if (abs(idup_[icount])==24) histos1D_[ "wEta" ]->Fill(part4vec.Eta());
+       if (abs(idup_[icount])==23) histos1D_[ "zEta" ]->Fill(part4vec.Eta());
        if ((abs(idup_[mothup_[icount].first-1])==6) && (abs(idup_[icount])==5)) histos1D_[ "btEta" ]->Fill(part4vec.Eta());
        if (abs(idup_[icount])==tprimepdg) histos1D_[ "tprimeEta" ]->Fill(part4vec.Eta());
        if (abs(idup_[icount])==25) histos1D_[ "hEta" ]->Fill(part4vec.Eta());
 
        if (abs(idup_[icount])==6) histos1D_[ "topPhi" ]->Fill(part4vec.Phi());
-       if ((abs(idup_[mothup_[icount].first-1])==6) && (abs(idup_[icount])==24)) histos1D_[ "wtPhi" ]->Fill(part4vec.Phi());
+       if (abs(idup_[icount])==24) histos1D_[ "wPhi" ]->Fill(part4vec.Phi());
+       if (abs(idup_[icount])==23) histos1D_[ "zPhi" ]->Fill(part4vec.Phi());
        if ((abs(idup_[mothup_[icount].first-1])==6) && (abs(idup_[icount])==5)) histos1D_[ "btPhi" ]->Fill(part4vec.Phi());
        if (abs(idup_[icount])==tprimepdg) histos1D_[ "tprimePhi" ]->Fill(part4vec.Phi());
        if (abs(idup_[icount])==25) histos1D_[ "hPhi" ]->Fill(part4vec.Phi());
@@ -231,8 +122,10 @@ private:
 
        if (abs(idup_[icount])==6) histos1D_[ "topMothers" ]->Fill(mother1);
        if (abs(idup_[icount])==6) histos1D_[ "topMothers" ]->Fill(mother2);
-       if ((abs(idup_[mothup_[icount].first-1])==6) && (abs(idup_[icount])==24)) histos1D_[ "wtMothers" ]->Fill(mother1);
-       if ((abs(idup_[mothup_[icount].first-1])==6) && (abs(idup_[icount])==24)) histos1D_[ "wtMothers" ]->Fill(mother2);
+       if (abs(idup_[icount])==24) histos1D_[ "wMothers" ]->Fill(mother1);
+       if (abs(idup_[icount])==24) histos1D_[ "wMothers" ]->Fill(mother2);
+       if (abs(idup_[icount])==23) histos1D_[ "zMothers" ]->Fill(mother1);
+       if (abs(idup_[icount])==23) histos1D_[ "zMothers" ]->Fill(mother2);
        if ((abs(idup_[mothup_[icount].first-1])==6) && (abs(idup_[icount])==5)) histos1D_[ "btMothers" ]->Fill(mother1);
        if ((abs(idup_[mothup_[icount].first-1])==6) && (abs(idup_[icount])==5)) histos1D_[ "btMothers" ]->Fill(mother2);
        if (abs(idup_[icount])==tprimepdg) histos1D_[ "tprimeMothers" ]->Fill(mother1);
@@ -244,39 +137,51 @@ private:
            histos1D_[ "topDaughters" ]->Fill(checkDau(6, idup_, mothup_).first);
            histos1D_[ "topDaughters" ]->Fill(checkDau(6, idup_, mothup_).second);
        }
-       if (idup_[icount]==tprimepdg) {
-           histos1D_[ "tprimeDaughters" ]->Fill(checkDau(tprimepdg, idup_, mothup_).first);
-           histos1D_[ "tprimeDaughters" ]->Fill(checkDau(tprimepdg, idup_, mothup_).second);
-       }
        if (idup_[icount]==-6) {
            histos1D_[ "topDaughters" ]->Fill(checkDau(-6, idup_, mothup_).first);
            histos1D_[ "topDaughters" ]->Fill(checkDau(-6, idup_, mothup_).second);
+       }
+       if (idup_[icount]==tprimepdg) {
+           histos1D_[ "tprimeDaughters" ]->Fill(checkDau(tprimepdg, idup_, mothup_).first);
+           histos1D_[ "tprimeDaughters" ]->Fill(checkDau(tprimepdg, idup_, mothup_).second);
        }
        if (idup_[icount]==-tprimepdg) {
            histos1D_[ "tprimeDaughters" ]->Fill(checkDau(-tprimepdg, idup_, mothup_).first);
            histos1D_[ "tprimeDaughters" ]->Fill(checkDau(-tprimepdg, idup_, mothup_).second);
        }
+       if (idup_[icount]==24) {
+           int decay_mode = abs(checkDau(24, idup_, mothup_).first)+abs(checkDau(24, idup_, mothup_).second);
+           if (decay_mode < 20) histos1D_[ "wHadToNonHad" ]->Fill(1);
+           else histos1D_[ "wHadToNonHad" ]->Fill(0);
+           histos1D_[ "wDecayModes" ]->Fill(decay_mode);
+           histos1D_[ "wDaughters" ]->Fill(checkDau(24, idup_, mothup_).first);
+           histos1D_[ "wDaughters" ]->Fill(checkDau(24, idup_, mothup_).second);
+       }
+       if (idup_[icount]==-24) {
+           int decay_mode = abs(checkDau(-24, idup_, mothup_).first)+abs(checkDau(-24, idup_, mothup_).second);
+           histos1D_[ "wDecayModes" ]->Fill(decay_mode);
+           if (decay_mode < 20) histos1D_[ "wHadToNonHad" ]->Fill(1);
+           else histos1D_[ "wHadToNonHad" ]->Fill(0);
+           histos1D_[ "wDaughters" ]->Fill(checkDau(-24, idup_, mothup_).first);
+           histos1D_[ "wDaughters" ]->Fill(checkDau(-24, idup_, mothup_).second);
+       }
 
-
-
-       //if (abs(idup_[icount])==6) histos1D_[ "topP" ]->Fill(sqrt(pow((pup_[icount])[0],2)+pow((pup_[icount])[1],2)+pow((pup_[icount])[2],2)));
-       //if ((abs(idup_[mothup_[icount].first-1])==tprimepdg) && (abs(idup_[icount])==24)) histos1D_[ "wtpP" ]->Fill(sqrt(pow((pup_[icount])[0],2)+pow((pup_[icount])[1],2)+pow((pup_[icount])[2],2)));
-       //if ((abs(idup_[mothup_[icount].first-1])==tprimepdg) && (abs(idup_[icount])==5)) histos1D_[ "btpP" ]->Fill(sqrt(pow((pup_[icount])[0],2)+pow((pup_[icount])[1],2)+pow((pup_[icount])[2],2)));
-       //if (abs(idup_[icount])==tprimepdg) histos1D_[ "tprimeP" ]->Fill(sqrt(pow((pup_[icount])[0],2)+pow((pup_[icount])[1],2)+pow((pup_[icount])[2],2)));
+       // ONLY FOR VARIAL WEBCREATOR TO ALSO CREATE Z PT PLOT
+       if (abs(idup_[icount])==23) histos1D_[ "zzz" ]->Fill(1);
 
        if (abs(idup_[icount])==6) histos1D_[ "topM" ]->Fill((pup_[icount])[4]);
        if (abs(idup_[icount])==tprimepdg) histos1D_[ "tprimeM" ]->Fill((pup_[icount])[4]);
-       //if (abs(idup_[icount])==zprimepdg) histos1D_[ "zprimeM" ]->Fill((pup_[icount])[4]);
 
-       //tZ specific
-       //if ((abs(idup_[mothup_[icount].first-1])==tprimepdg) && (abs(idup_[icount])==6)) histos1D_[ "toptprimePt" ]->Fill(sqrt(pow((pup_[icount])[0],2)+pow((pup_[icount])[1],2)));
-       //if ((abs(idup_[mothup_[icount].first-1])==zprimepdg) && (abs(idup_[icount])==6)) histos1D_[ "topzprimePt" ]->Fill(sqrt(pow((pup_[icount])[0],2)+pow((pup_[icount])[1],2)));
-       //if (abs(idup_[icount])==23) histos1D_[ "zPt" ]->Fill(sqrt(pow((pup_[icount])[0],2)+pow((pup_[icount])[1],2)));
-       //if (abs(idup_[icount])==23) histos1D_[ "zM" ]->Fill((pup_[icount])[4]);
-       //tH specific
        if (abs(idup_[icount])==25) histos1D_[ "hM" ]->Fill((pup_[icount])[4]);
 
     }
+
+    if (ld_mu_pt) {
+        histos1D_[ "wMuPt" ]->Fill(ld_mu_pt);
+        histos1D_[ "wMuEta" ]->Fill(ld_mu_eta);
+        histos1D_[ "wMuPhi" ]->Fill(ld_mu_phi);
+    }
+
     if( evt->weights().size() ) {
       //std::cout << "weights:" << std::endl;
       for ( size_t iwgt = 0; iwgt < evt->weights().size(); ++iwgt ) {
@@ -294,64 +199,47 @@ edm::Service< TFileService > fileService;
 //bW and generic
   histos1D_[ "topPt" ] = fileService->make< TH1D >( "topPt", ";top p_{T} [GeV];Events", 200, 0., 2000);
   histos1D_[ "tprimePt" ] = fileService->make< TH1D >( "tprimePt", ";T' p_{T} [GeV];Events", 200, 0., 2000);
-  histos1D_[ "wtPt" ] = fileService->make< TH1D >( "wtPt", ";W from t p_{T} [GeV];Events", 200, 0., 2000);
+  histos1D_[ "wPt" ] = fileService->make< TH1D >( "wPt", ";W p_{T} [GeV];Events", 200, 0., 2000);
+  histos1D_[ "zPt" ] = fileService->make< TH1D >( "zPt", ";Z p_{T} [GeV];Events", 200, 0., 2000);
   histos1D_[ "btPt" ] = fileService->make< TH1D >( "btPt", ";b from t p_{T} [GeV];Events", 200, 0., 2000);
   histos1D_[ "hPt" ] = fileService->make< TH1D >( "hPt", ";h p_{T} [GeV];Events", 200, 0., 2000);
+  histos1D_[ "wMuPt" ] = fileService->make< TH1D >( "wMuPt", ";W Leading Muon p_{T} [GeV];Events", 200, 0., 2000);
 
-  histos1D_[ "topEta" ] = fileService->make< TH1D >( "topEta", ";top p [GeV];Events", 140, -7, 7);
-  histos1D_[ "tprimeEta" ] = fileService->make< TH1D >( "tprimeEta", ";T' p [GeV];Events", 140, -7, 7);
-  histos1D_[ "wtEta" ] = fileService->make< TH1D >( "wtEta", ";W from t p [GeV];Events", 140, -7, 7);
-  histos1D_[ "btEta" ] = fileService->make< TH1D >( "btEta", ";b from t p [GeV];Events", 140, -7, 7);
-  histos1D_[ "hEta" ] = fileService->make< TH1D >( "hEta", ";h p [GeV];Events", 140, -7, 7);
+  histos1D_[ "topEta" ] = fileService->make< TH1D >( "topEta", ";top Eta;Events", 140, -7, 7);
+  histos1D_[ "tprimeEta" ] = fileService->make< TH1D >( "tprimeEta", ";T' Eta;Events", 140, -7, 7);
+  histos1D_[ "wEta" ] = fileService->make< TH1D >( "wEta", ";W Eta;Events", 140, -7, 7);
+  histos1D_[ "zEta" ] = fileService->make< TH1D >( "zEta", ";Z Eta;Events", 140, -7, 7);
+  histos1D_[ "btEta" ] = fileService->make< TH1D >( "btEta", ";b from t Eta;Events", 140, -7, 7);
+  histos1D_[ "hEta" ] = fileService->make< TH1D >( "hEta", ";h Eta;Events", 140, -7, 7);
+  histos1D_[ "wMuEta" ] = fileService->make< TH1D >( "wMuEta", ";W Leading Muon Eta;Events", 140, -7, 7);
 
-  histos1D_[ "topPhi" ] = fileService->make< TH1D >( "topPhi", ";top p [GeV];Events", 63, -3.15, 3.15);
-  histos1D_[ "tprimePhi" ] = fileService->make< TH1D >( "tprimePhi", ";T' p [GeV];Events", 63, -3.15, 3.15);
-  histos1D_[ "wtPhi" ] = fileService->make< TH1D >( "wtPhi", ";W from t p [GeV];Events", 63, -3.15, 3.15);
-  histos1D_[ "btPhi" ] = fileService->make< TH1D >( "btPhi", ";b from t p [GeV];Events", 63, -3.15, 3.15);
-  histos1D_[ "hPhi" ] = fileService->make< TH1D >( "hPhi", ";h p [GeV];Events", 63, -3.15, 3.15);
+  histos1D_[ "topPhi" ] = fileService->make< TH1D >( "topPhi", ";top Phi;Events", 63, -3.15, 3.15);
+  histos1D_[ "tprimePhi" ] = fileService->make< TH1D >( "tprimePhi", ";T' Phi;Events", 63, -3.15, 3.15);
+  histos1D_[ "wPhi" ] = fileService->make< TH1D >( "wPhi", ";W Phi;Events", 63, -3.15, 3.15);
+  histos1D_[ "zPhi" ] = fileService->make< TH1D >( "zPhi", ";Z Phi;Events", 63, -3.15, 3.15);
+  histos1D_[ "btPhi" ] = fileService->make< TH1D >( "btPhi", ";b from t Phi;Events", 63, -3.15, 3.15);
+  histos1D_[ "hPhi" ] = fileService->make< TH1D >( "hPhi", ";h Phi;Events", 63, -3.15, 3.15);
+  histos1D_[ "wMuPhi" ] = fileService->make< TH1D >( "wMuPhi", ";W Leading Muon Phi;Events", 63, -3.15, 3.15);
 
-  histos1D_[ "topMothers" ] = fileService->make< TH1D >( "topMothers", ";top p [GeV];Events", 61, -30.5, 30.5);
-  histos1D_[ "tprimeMothers" ] = fileService->make< TH1D >( "tprimeMothers", ";T' p [GeV];Events", 61, -30.5, 30.5);
-  histos1D_[ "wtMothers" ] = fileService->make< TH1D >( "wtMothers", ";W from t p [GeV];Events", 61, -30.5, 30.5);
-  histos1D_[ "btMothers" ] = fileService->make< TH1D >( "btMothers", ";b from t p [GeV];Events", 61, -30.5, 30.5);
-  histos1D_[ "hMothers" ] = fileService->make< TH1D >( "hMothers", ";h p [GeV];Events", 61, -30.5, 30.5);
+  histos1D_[ "topMothers" ] = fileService->make< TH1D >( "topMothers", ";top Mothers;Events", 61, -30.5, 30.5);
+  histos1D_[ "tprimeMothers" ] = fileService->make< TH1D >( "tprimeMothers", ";T' Mothers;Events", 61, -30.5, 30.5);
+  histos1D_[ "wMothers" ] = fileService->make< TH1D >( "wMothers", ";W Mothers;Events", 61, -30.5, 30.5);
+  histos1D_[ "zMothers" ] = fileService->make< TH1D >( "zMothers", ";Z Mothers;Events", 61, -30.5, 30.5);
+  histos1D_[ "btMothers" ] = fileService->make< TH1D >( "btMothers", ";b from t Mothers;Events", 61, -30.5, 30.5);
+  histos1D_[ "hMothers" ] = fileService->make< TH1D >( "hMothers", ";h Mothers;Events", 61, -30.5, 30.5);
 
-  histos1D_[ "topDaughters" ] = fileService->make< TH1D >( "topDaughters", ";top p [GeV];Events", 61, -30.5, 30.5);
-  histos1D_[ "tprimeDaughters" ] = fileService->make< TH1D >( "tprimeDaughters", ";T' p [GeV];Events", 61, -30.5, 30.5);
+  histos1D_[ "topDaughters" ] = fileService->make< TH1D >( "topDaughters", ";top Daughters;Events", 61, -30.5, 30.5);
+  histos1D_[ "tprimeDaughters" ] = fileService->make< TH1D >( "tprimeDaughters", ";T' Daughters;Events", 61, -30.5, 30.5);
+  histos1D_[ "wDaughters" ] = fileService->make< TH1D >( "wDaughters", ";W Daughters;Events", 61, -30.5, 30.5);
+  histos1D_[ "zDaughters" ] = fileService->make< TH1D >( "zDaughters", ";Z Daughters;Events", 61, -30.5, 30.5);
+  histos1D_[ "wDecayModes" ] = fileService->make< TH1D >( "wDecayModes", ";W Decay Modes (sum of abs(pdgid));Events", 34, -0.5, 33.5);
+  histos1D_[ "wHadToNonHad" ] = fileService->make< TH1D >( "wHadToNonHad", ";W Decay hadronic fraction (1=hadronic);Events", 2, -0.5, 1.5);
 
   histos1D_[ "topM" ] = fileService->make< TH1D >( "topM", ";top mass [GeV];Events", 100, 100, 200);
   histos1D_[ "tprimeM" ] = fileService->make< TH1D >( "tprimeM", ";T' mass [GeV];Events", 200, 0, 2000);
   histos1D_[ "hM" ] = fileService->make< TH1D >( "hM", ";H mass [GeV];Events", 100, 80, 180);
 
-    // Handle<LHERunInfoProduct> run;
-    // iRun.getByLabel( src_, run );
-    
-    // const lhef::HEPRUP thisHeprup_ = run->heprup();
-
-    // std::cout << "HEPRUP \n" << std::endl;
-    // std::cout << "IDBMUP " << std::setw(14) << std::fixed << thisHeprup_.IDBMUP.first 
-    //           << std::setw(14) << std::fixed << thisHeprup_.IDBMUP.second << std::endl; 
-    // std::cout << "EBMUP  " << std::setw(14) << std::fixed << thisHeprup_.EBMUP.first 
-    //           << std::setw(14) << std::fixed << thisHeprup_.EBMUP.second << std::endl; 
-    // std::cout << "PDFGUP " << std::setw(14) << std::fixed << thisHeprup_.PDFGUP.first 
-    //           << std::setw(14) << std::fixed << thisHeprup_.PDFGUP.second << std::endl; 
-    // std::cout << "PDFSUP " << std::setw(14) << std::fixed << thisHeprup_.PDFSUP.first 
-    //           << std::setw(14) << std::fixed << thisHeprup_.PDFSUP.second << std::endl; 
-    // std::cout << "IDWTUP " << std::setw(14) << std::fixed << thisHeprup_.IDWTUP << std::endl; 
-    // std::cout << "NPRUP  " << std::setw(14) << std::fixed << thisHeprup_.NPRUP << std::endl; 
-    // std::cout << "        XSECUP " << std::setw(14) << std::fixed 
-    //           << "        XERRUP " << std::setw(14) << std::fixed 
-    //           << "        XMAXUP " << std::setw(14) << std::fixed 
-    //           << "        LPRUP  " << std::setw(14) << std::fixed << std::endl;
-    // for ( unsigned int iSize = 0 ; iSize < thisHeprup_.XSECUP.size() ; iSize++ ) {
-    //   std::cout  << std::setw(14) << std::fixed << thisHeprup_.XSECUP[iSize]
-    //              << std::setw(14) << std::fixed << thisHeprup_.XERRUP[iSize]
-    //              << std::setw(14) << std::fixed << thisHeprup_.XMAXUP[iSize]
-    //              << std::setw(14) << std::fixed << thisHeprup_.LPRUP[iSize] 
-    //              << std::endl;
-    // }
-    // std::cout << " " << std::endl;
-
+  histos1D_[ "zzz" ] = fileService->make< TH1D >( "zzz", "zzz", 100, 80, 180);
   }
   
 
